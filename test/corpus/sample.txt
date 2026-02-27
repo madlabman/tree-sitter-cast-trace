@@ -1,0 +1,590 @@
+================================================================================
+Simple report trace
+================================================================================
+
+Executing previous transactions from the block.
+Traces:
+  [52419] 0x3C8C0a49a45A46a147EbA2f9867166f2Cd89E595::submitReport(14673759 [1.467e7], 0x3333333333333333333333333333333333333333333333333333333333333333, 2)
+    ├─ [7469] 0x5Ed162d7Fcc3e13CAD0844B333B66948EE4932f8::getConsensusVersion() [staticcall]
+    │   ├─ [2424] 0xEE9756bc8AD4Dc17BFCDB8a47F918D551a37539d::getConsensusVersion() [delegatecall]
+    │   │   └─ ← [Return] 0x0000000000000000000000000000000000000000000000000000000000000002
+    │   └─ ← [Return] 0x0000000000000000000000000000000000000000000000000000000000000002
+    ├─ emit ReportReceived(refSlot: 14673759 [1.467e7], member: 0xe57B3792aDCc5da47EF4fF588883F0ee0c9835C9, report: 0x3333333333333333333333333333333333333333333333333333333333333333)
+    └─ ← [Stop]
+
+
+Transaction successfully executed.
+Gas used: 74299
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (blank_line
+    (newline))
+  (statement_line
+    (execution_header)
+    (newline))
+  (statement_line
+    (traces_header)
+    (newline))
+  (statement_line
+    (trace_call_line
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (annotated_number
+          (number)
+          (sci_annotation))
+        (hex_data)
+        (number)))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind))
+      (hex_data))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind))
+      (hex_data))
+    (newline))
+  (statement_line
+    (emit_event_line
+      (trace_prefix)
+      (identifier)
+      (arguments
+        (named_argument
+          (identifier)
+          (annotated_number
+            (number)
+            (sci_annotation)))
+        (named_argument
+          (identifier)
+          (address))
+        (named_argument
+          (identifier)
+          (hex_data))))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind)))
+    (newline))
+  (blank_line
+    (newline))
+  (blank_line
+    (newline))
+  (statement_line
+    (success_line)
+    (newline))
+  (statement_line
+    (gas_used_line
+      (number))
+    (newline)))
+
+================================================================================
+Emit events with nested calls
+================================================================================
+
+Executing previous transactions from the block.
+Traces:
+  [111268] 0x95A13B7F46f569B0633Cc48c42103F526c269d4F::decreaseVettedSigningKeysCount(0x0000000000000000, 0x00000000000000000000000000000001)
+    ├─ [106175] 0xaAcD55c6Cc06b509c36b9e28Ce2a53F69E5Bc9FE::decreaseVettedSigningKeysCount(0x0000000000000000, 0x00000000000000000000000000000001) [delegatecall]
+    │   ├─ [97504] 0xD395F394AEAccFE1ee8c75f7b1E876465CeFd70b::6f5b9ab2(00000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000c00000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000100000000000000000000000000000000) [delegatecall]
+    │   │   ├─ emit VettedSigningKeysCountChanged(nodeOperatorId: 0, vettedKeysCount: 1)
+    │   │   ├─ emit VettedSigningKeysCountDecreased(nodeOperatorId: 0)
+    │   │   ├─ [85794] 0x95A13B7F46f569B0633Cc48c42103F526c269d4F::updateDepositableValidatorsCount(0)
+    │   │   │   ├─ [85249] 0xaAcD55c6Cc06b509c36b9e28Ce2a53F69E5Bc9FE::updateDepositableValidatorsCount(0) [delegatecall]
+    │   │   │   │   ├─ [69220] 0xD395F394AEAccFE1ee8c75f7b1E876465CeFd70b::ff38e6f3(00000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000) [delegatecall]
+    │   │   │   │   │   ├─ [916] 0x95A13B7F46f569B0633Cc48c42103F526c269d4F::ACCOUNTING() [staticcall]
+    │   │   │   │   │   │   ├─ [371] 0xaAcD55c6Cc06b509c36b9e28Ce2a53F69E5Bc9FE::ACCOUNTING() [delegatecall]
+    │   │   │   │   │   │   │   └─ ← [Return] 0x0000000000000000000000001f82203300e3ae8b618068f46d3ae55aa6fb5be1
+    │   │   │   │   │   │   └─ ← [Return] 0x0000000000000000000000001f82203300e3ae8b618068f46d3ae55aa6fb5be1
+    │   │   │   │   │   ├─ [63652] 0x1F82203300E3aE8B618068F46D3Ae55aa6fB5bE1::getUnbondedKeysCount(0) [staticcall]
+    │   │   │   │   │   │   ├─ [58604] 0xEDD7AeaC85C3BaEb296B4851987ED95cfDD6343b::getUnbondedKeysCount(0) [delegatecall]
+    │   │   │   │   │   │   │   ├─ [1101] 0x95A13B7F46f569B0633Cc48c42103F526c269d4F::getNodeOperatorNonWithdrawnKeys(0) [staticcall]
+    │   │   │   │   │   │   │   │   ├─ [553] 0xaAcD55c6Cc06b509c36b9e28Ce2a53F69E5Bc9FE::getNodeOperatorNonWithdrawnKeys(0) [delegatecall]
+    │   │   │   │   │   │   │   │   │   └─ ← [Return] 0x0000000000000000000000000000000000000000000000000000000000000003
+    │   │   │   │   │   │   │   │   └─ ← [Return] 0x0000000000000000000000000000000000000000000000000000000000000003
+    │   │   │   │   │   │   │   ├─ [27408] 0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84::getPooledEthByShares(4072042298621339598 [4.072e18]) [staticcall]
+    │   │   │   │   │   │   │   │   ├─ [8263] 0xb8FFC3Cd6e7Cf5a098A1c92F48009765B24088Dc::getApp(0xf1f3eb40f5bc1ad1344716ced8b8a0431d840b5783aea1fd01786bc26f35ac0f, 0x3ca7c3e38968823ccb4c78ea688df41356f182ae1d159e4ee608d30d68cef320)
+    │   │   │   │   │   │   │   │   │   ├─ [2820] 0x2b33CF282f867A7FF693A66e11B0FcC5552e4425::getApp(0xf1f3eb40f5bc1ad1344716ced8b8a0431d840b5783aea1fd01786bc26f35ac0f, 0x3ca7c3e38968823ccb4c78ea688df41356f182ae1d159e4ee608d30d68cef320) [delegatecall]
+    │   │   │   │   │   │   │   │   │   │   └─ ← [Return] 0x0000000000000000000000006ca84080381e43938476814be61b779a8bb6a600
+    │   │   │   │   │   │   │   │   │   └─ ← [Return] 0x0000000000000000000000006ca84080381e43938476814be61b779a8bb6a600
+    │   │   │   │   │   │   │   │   ├─ [8528] 0x6ca84080381E43938476814be61B779A8bB6a600::getPooledEthByShares(4072042298621339598 [4.072e18]) [delegatecall]
+    │   │   │   │   │   │   │   │   │   └─ ← [Return] 0x0000000000000000000000000000000000000000000000004563918244f40000
+    │   │   │   │   │   │   │   │   └─ ← [Return] 0x0000000000000000000000000000000000000000000000004563918244f40000
+    │   │   │   │   │   │   │   ├─ [14132] 0x7f691D625998b71A311eb2411A331CD05F675566::getKeysCountByBondAmount(64742372985858511151350853115967303505503346668582758073363878459343795787008 [6.474e76], 5000000000000000010 [5e18], 0) [delegatecall]
+    │   │   │   │   │   │   │   │   └─ ← [Return] 0x0000000000000000000000000000000000000000000000000000000000000003
+    │   │   │   │   │   │   │   └─ ← [Return] 0x0000000000000000000000000000000000000000000000000000000000000000
+    │   │   │   │   │   │   └─ ← [Return] 0x0000000000000000000000000000000000000000000000000000000000000000
+    │   │   │   │   │   └─ ← [Return] 0x0000000000000000000000000000000000000000000000000000000000000001
+    │   │   │   │   ├─ emit DepositableSigningKeysCountChanged(nodeOperatorId: 0, depositableKeysCount: 1)
+    │   │   │   │   ├─ emit NonceChanged(nonce: 4)
+    │   │   │   │   ├─ [846] 0xdccDcA303e3A26f51e063fD6A1f102FE2a8Ad9E6::4685f361(00000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ec7dc56d5a301f9b26dac0f88d207eaffdb763880000000000000000000000001f82203300e3ae8b618068f46d3ae55aa6fb5be100000000000000000000000000000000000000000000000000000000000000050000000000000000000000000000000000000000000000000000000000000000) [delegatecall]
+    │   │   │   │   │   └─ ← [Stop]
+    │   │   │   │   └─ ← [Stop]
+    │   │   │   └─ ← [Return]
+    │   │   └─ ← [Stop]
+    │   └─ ← [Stop]
+    └─ ← [Return]
+
+
+Transaction successfully executed.
+Gas used: 133160
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (blank_line
+    (newline))
+  (statement_line
+    (execution_header)
+    (newline))
+  (statement_line
+    (traces_header)
+    (newline))
+  (statement_line
+    (trace_call_line
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (hex_data)
+        (hex_data)))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (hex_data)
+        (hex_data))
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (hex_blob
+          (number)
+          (hex_tail)))
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (emit_event_line
+      (trace_prefix)
+      (identifier)
+      (arguments
+        (named_argument
+          (identifier)
+          (number))
+        (named_argument
+          (identifier)
+          (number))))
+    (newline))
+  (statement_line
+    (emit_event_line
+      (trace_prefix)
+      (identifier)
+      (arguments
+        (named_argument
+          (identifier)
+          (number))))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (number)))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (number))
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (number))
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind))
+      (hex_data))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind))
+      (hex_data))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (number))
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (number))
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (number))
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (number))
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind))
+      (hex_data))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind))
+      (hex_data))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (annotated_number
+          (number)
+          (sci_annotation)))
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (hex_data)
+        (hex_data)))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (hex_data)
+        (hex_data))
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind))
+      (hex_data))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind))
+      (hex_data))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (annotated_number
+          (number)
+          (sci_annotation)))
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind))
+      (hex_data))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind))
+      (hex_data))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (annotated_number
+          (number)
+          (sci_annotation))
+        (annotated_number
+          (number)
+          (sci_annotation))
+        (number))
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind))
+      (hex_data))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind))
+      (hex_data))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind))
+      (hex_data))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind))
+      (hex_data))
+    (newline))
+  (statement_line
+    (emit_event_line
+      (trace_prefix)
+      (identifier)
+      (arguments
+        (named_argument
+          (identifier)
+          (number))
+        (named_argument
+          (identifier)
+          (number))))
+    (newline))
+  (statement_line
+    (emit_event_line
+      (trace_prefix)
+      (identifier)
+      (arguments
+        (named_argument
+          (identifier)
+          (number))))
+    (newline))
+  (statement_line
+    (trace_call_line
+      (trace_prefix)
+      (gas
+        (number))
+      (call_target
+        (address))
+      (function_name)
+      (arguments
+        (hex_blob
+          (number)
+          (hex_tail)))
+      (call_type
+        (call_kind)))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind)))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind)))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind)))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind)))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind)))
+    (newline))
+  (statement_line
+    (trace_return_line
+      (trace_prefix)
+      (status
+        (status_kind)))
+    (newline))
+  (blank_line
+    (newline))
+  (blank_line
+    (newline))
+  (statement_line
+    (success_line)
+    (newline))
+  (statement_line
+    (gas_used_line
+      (number))
+    (newline)))

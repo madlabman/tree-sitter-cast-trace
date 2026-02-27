@@ -1,0 +1,16 @@
+{
+  "name": "tree-sitter-cast-trace",
+  "version": "0.1.0",
+  "description": "Tree-sitter grammar for Foundry cast trace output",
+  "main": "grammar.js",
+  "license": "MIT",
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "test": "tree-sitter test",
+    "parse:sample": "tree-sitter parse --rebuild ../traces/0x47a5f5f15f9e591ccb3405809002e4af6bee3def82dd82f060291b0d8fbb24af.txt",
+    "parse:all": "tree-sitter parse --rebuild ../traces/*.txt | rg -n \"ERROR|MISSING\" && exit 1 || exit 0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.25.10"
+  }
+}
