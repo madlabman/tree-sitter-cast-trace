@@ -1,4 +1,3 @@
 node_modules/
-src/tree_sitter/
 src/grammar.json
 src/node-types.json
